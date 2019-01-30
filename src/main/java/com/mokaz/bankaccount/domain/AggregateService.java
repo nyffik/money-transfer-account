@@ -21,6 +21,9 @@ public class AggregateService {
 
     public Account load(String aggregateId) {
         List<DomainEvent> events = repository.findByAggregateIdOrderByCreatedAt(aggregateId);
+        if(events.isEmpty()) {
+            throw new AccountNotFoundException(String.format("Account %s not found.", aggregateId));
+        }
         return Account.from(aggregateId,events);
     }
 

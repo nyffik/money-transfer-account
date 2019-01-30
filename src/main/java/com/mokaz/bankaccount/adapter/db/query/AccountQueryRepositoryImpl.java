@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 class AccountQueryRepositoryImpl implements AccountQueryRepository {
-    Map<String,AccountResource> accounts = new HashMap<>();
+    private final Map<String,AccountResource> accounts = new HashMap<>();
 
     @Override
     public AccountResource findByAggregateId(String aggregateId) {
@@ -24,6 +24,11 @@ class AccountQueryRepositoryImpl implements AccountQueryRepository {
 
     @Override
     public List<AccountResource> findAll() {
-        return ImmutableList.copyOf(accounts.entrySet().stream().map(e->e.getValue()).collect(Collectors.toList()));
+        return ImmutableList.copyOf(accounts.entrySet().stream().map(Map.Entry::getValue).collect(Collectors.toList()));
+    }
+
+    @Override
+    public void deleteAll() {
+        accounts.clear();
     }
 }

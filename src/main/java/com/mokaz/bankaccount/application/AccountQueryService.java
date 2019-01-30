@@ -9,10 +9,9 @@ public class AccountQueryService {
 
     private final AccountQueryRepository accountQueryRepository;
 
-    AccountResource load(String aggregateId) {
+   public AccountResource load(String aggregateId) {
         return accountQueryRepository.findByAggregateId(aggregateId);
     }
-
    public List<AccountResource> findAll() {
         return accountQueryRepository.findAll();
     }

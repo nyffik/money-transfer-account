@@ -4,8 +4,6 @@ import com.mokaz.bankaccount.application.AccountQueryService;
 import com.mokaz.bankaccount.application.AccountResource;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
-import io.reactivex.Observable;
-import io.reactivex.Single;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -18,8 +16,11 @@ class AccountQueryController {
 
     @Get
     List<AccountResource> findAll() {
-        List<AccountResource> all = accountQueryService.findAll();
-        all.forEach(System.out::println);
-        return all;
+        return accountQueryService.findAll();
+    }
+
+    @Get("/{id}")
+    AccountResource findById(String id) {
+        return accountQueryService.load(id);
     }
 }

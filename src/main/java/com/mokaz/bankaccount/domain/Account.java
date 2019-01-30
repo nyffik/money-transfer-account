@@ -45,8 +45,8 @@ public class Account {
             apply((AccountCreatedEvent)event);
         } else if (event instanceof DepositCreatedEvent) {
             apply((DepositCreatedEvent)event);
-        } else if(event instanceof WitdrawCreatedEvent) {
-            apply((WitdrawCreatedEvent)event);
+        } else if(event instanceof WithdrawCreatedEvent) {
+            apply((WithdrawCreatedEvent)event);
         }
 
     }
@@ -68,13 +68,13 @@ public class Account {
 
     public void withdraw(BigDecimal amount) {
         if(this.amount.compareTo(amount)<0) {
-            throw new InsuffiecientAmountException("Insufficient amount on account");
+            throw new InsufficientAmountException("Insufficient amount on account");
         }
-        add(new WitdrawCreatedEvent(aggregateId, LocalDateTime.now(), amount));
+        add(new WithdrawCreatedEvent(aggregateId, LocalDateTime.now(), amount));
     }
 
-    private void apply(WitdrawCreatedEvent witdrawCreatedEvent) {
-        amount = amount.subtract(witdrawCreatedEvent.getAmount());
+    private void apply(WithdrawCreatedEvent withdrawCreatedEvent) {
+        amount = amount.subtract(withdrawCreatedEvent.getAmount());
     }
 
     public void clearEvents(){

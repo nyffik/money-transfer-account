@@ -1,4 +1,4 @@
-package com.mokaz.bankaccount.adapter.db.query;
+package com.mokaz.bankaccount.domain;
 
 public class AccountNotFoundException extends RuntimeException {
 

@@ -8,4 +8,6 @@ public interface AccountQueryRepository {
     void store(AccountResource resource);
 
     List<AccountResource> findAll();
+
+    void deleteAll();
 }

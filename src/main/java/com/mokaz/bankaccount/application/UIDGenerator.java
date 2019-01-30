@@ -1,6 +1,6 @@
 package com.mokaz.bankaccount.application;
 
-public interface UIDGenerator {
+interface UIDGenerator {
 
     String generate();
 }

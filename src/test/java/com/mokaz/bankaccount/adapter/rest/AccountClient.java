@@ -1,7 +1,6 @@
 package com.mokaz.bankaccount.adapter.rest;
 
 import com.mokaz.bankaccount.application.AccountResource;
-import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
@@ -14,6 +13,9 @@ public interface AccountClient {
 
     @Get
     List<AccountResource> findAll();
+
+    @Get("/{id}")
+    AccountResource findById(String id);
 
     @Post
     void create(@Body CreateAccountDto createAccountDto);

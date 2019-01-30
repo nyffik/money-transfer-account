@@ -6,9 +6,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
-public class WitdrawCreatedEvent extends DomainEvent {
+public class WithdrawCreatedEvent extends DomainEvent {
     private final BigDecimal amount;
-    public WitdrawCreatedEvent(String aggregateId, LocalDateTime now, BigDecimal amount) {
+    public WithdrawCreatedEvent(String aggregateId, LocalDateTime now, BigDecimal amount) {
         super(aggregateId, now);
         this.amount = amount;
     }

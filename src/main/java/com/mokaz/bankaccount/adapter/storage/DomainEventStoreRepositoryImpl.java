@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 class DomainEventStoreRepositoryImpl implements DomainEventStoreRepository {
 
-    private List<DomainEvent> events = new ArrayList<>();
+    private final List<DomainEvent> events = new ArrayList<>();
 
     @Override
     public List<DomainEvent> findByAggregateIdOrderByCreatedAt(String aggregateId) {

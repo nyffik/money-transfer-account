@@ -21,7 +21,7 @@ public class AccountService {
         aggregateService.store(account);
     }
 
-    public Account load(String aggregateId) {
+    private Account load(String aggregateId) {
         return aggregateService.load(aggregateId);
     }
 
@@ -32,20 +32,19 @@ public class AccountService {
 
     }
 
-    public void withdraw(String aggregateId, BigDecimal amount) {
+    void withdraw(String aggregateId, BigDecimal amount) {
         Account account = load(aggregateId);
         account.withdraw(amount);
         store(account);
     }
 
     public void transfer(String aggregateIdFrom, String aggregateIdTo, BigDecimal amount) {
-        Account load = load(aggregateIdFrom);
-        load.withdraw(amount);
-        store(load);
+        Account from = load(aggregateIdFrom);
+        Account to = load(aggregateIdTo);
+        from.withdraw(amount);
+        store(from);
 
-        Account load2 = load(aggregateIdTo);
-        load2.deposit(amount);
-        store(load2);
-
+        to.deposit(amount);
+        store(to);
     }
 }

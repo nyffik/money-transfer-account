@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 class TransferDto {
-    String aggregateIfFrom;
+    String aggregateIdFrom;
     String aggregateIdTo;
     String amount;
 }
