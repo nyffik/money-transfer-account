@@ -9,12 +9,12 @@ import lombok.RequiredArgsConstructor;
 import java.math.BigDecimal;
 
 @RequiredArgsConstructor
-public class CreatedAccountEventSubscriber {
+class CreatedAccountEventSubscriber {
 
     private final AccountQueryRepository accountQueryRepository;
 
     @Subscribe
-    public void handle(AccountCreatedEvent event) {
+    void handle(AccountCreatedEvent event) {
         AccountResource build = AccountResource.builder()
                 .aggregateId(event.getAggregateId())
                 .ownerName(event.getOwnerName())

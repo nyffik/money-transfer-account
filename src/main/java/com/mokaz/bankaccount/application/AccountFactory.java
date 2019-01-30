@@ -10,12 +10,12 @@ import javax.inject.Singleton;
 import java.util.UUID;
 
 @Factory
-public class AccountFactory {
+class AccountFactory {
 
     @Singleton
     @Bean
-    AccountService accountService(AggregateService aggregateService){
-        return new AccountService(aggregateService,()-> UUID.randomUUID().toString());
+    AccountService accountService(AggregateService aggregateService, UIDGenerator uidGenerator){
+        return new AccountService(aggregateService,uidGenerator);
     }
 
     @Singleton
@@ -28,6 +28,12 @@ public class AccountFactory {
     @Bean
     AccountQueryService accountQueryService(AccountQueryRepository accountQueryRepository){
         return new AccountQueryService(accountQueryRepository);
+    }
+
+    @Singleton
+    @Bean
+    UIDGenerator uidGenerator(){
+        return ()-> UUID.randomUUID().toString();
     }
 
 }

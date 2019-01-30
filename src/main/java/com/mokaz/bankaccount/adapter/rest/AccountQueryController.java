@@ -12,12 +12,12 @@ import java.util.List;
 
 @Controller("/account")
 @RequiredArgsConstructor
-public class AccountQueryController {
+class AccountQueryController {
 
     private final AccountQueryService accountQueryService;
 
     @Get
-    public List<AccountResource> findAll() {
+    List<AccountResource> findAll() {
         List<AccountResource> all = accountQueryService.findAll();
         all.forEach(System.out::println);
         return all;

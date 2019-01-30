@@ -7,11 +7,11 @@ import com.mokaz.bankaccount.domain.DepositCreatedEvent;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class DepositAccountEventSubscriber {
+class DepositAccountEventSubscriber {
     private final AccountQueryRepository accountQueryRepository;
 
     @Subscribe
-    public void handle(DepositCreatedEvent event) {
+    void handle(DepositCreatedEvent event) {
 
         AccountResource accountResource = accountQueryRepository.findByAggregateId(event.getAggregateId());
         accountResource.deposit(event.getAmount());

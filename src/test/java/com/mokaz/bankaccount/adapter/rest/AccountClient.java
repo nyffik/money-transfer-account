@@ -16,5 +16,11 @@ public interface AccountClient {
     List<AccountResource> findAll();
 
     @Post
-    HttpResponse create(@Body CreateAccountDto createAccountDto);
+    void create(@Body CreateAccountDto createAccountDto);
+
+    @Post("/deposit")
+    void deposit(@Body DepositDto depositDto);
+
+    @Post("/transfer")
+    void transfer(@Body TransferDto transferDto);
 }

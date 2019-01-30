@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class DepositDto {
+class DepositDto {
     String aggregateId;
     String amount;
 

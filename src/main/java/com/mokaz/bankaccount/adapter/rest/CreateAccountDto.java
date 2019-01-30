@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class CreateAccountDto {
+class CreateAccountDto {
 
     private String ownerName;
     private String accountName;

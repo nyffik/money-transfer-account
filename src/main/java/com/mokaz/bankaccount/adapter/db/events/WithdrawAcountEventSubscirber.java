@@ -7,11 +7,11 @@ import com.mokaz.bankaccount.domain.WitdrawCreatedEvent;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class WithdrawAcountEventSubscirber {
+class WithdrawAcountEventSubscirber {
     private final AccountQueryRepository accountQueryRepository;
 
     @Subscribe
-    public void handle(WitdrawCreatedEvent event) {
+    void handle(WitdrawCreatedEvent event) {
 
         AccountResource accountResource = accountQueryRepository.findByAggregateId(event.getAggregateId());
         accountResource.withdraw(event.getAmount());

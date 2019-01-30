@@ -6,7 +6,7 @@ import com.mokaz.bankaccount.domain.DomainEvent;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class GuavaEventPublisher implements ApplicationEventPublisher {
+class GuavaEventPublisher implements ApplicationEventPublisher {
 
     private final EventBus eventBus;
 

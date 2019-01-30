@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DomainEventStoreRepositoryImpl implements DomainEventStoreRepository {
+class DomainEventStoreRepositoryImpl implements DomainEventStoreRepository {
 
     private List<DomainEvent> events = new ArrayList<>();
 

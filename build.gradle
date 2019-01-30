@@ -43,6 +43,7 @@ dependencies {
     testCompile "io.micronaut:micronaut-inject-java"
     compile 'com.google.guava:guava:27.0.1-jre'
     testCompile("org.assertj:assertj-core:3.11.1")
+    testCompile "org.mockito:mockito-junit-jupiter:2.22.0"
 
 
 }

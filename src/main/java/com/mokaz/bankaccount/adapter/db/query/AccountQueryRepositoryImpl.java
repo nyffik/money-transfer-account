@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class AccountQueryRepositoryImpl implements AccountQueryRepository {
+class AccountQueryRepositoryImpl implements AccountQueryRepository {
     Map<String,AccountResource> accounts = new HashMap<>();
 
     @Override
