@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: com.mokaz.bankaccount
+---
+testFramework: junit
+sourceLanguage: java
